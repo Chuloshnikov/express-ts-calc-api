@@ -21,3 +21,33 @@ exports.router.get("/:id", (req, res) => {
         result: 1,
     });
 });
+exports.router.post('/', (req, res) => {
+    const { operator, operand1, operand2 } = req.body;
+    let result;
+    switch (operator) {
+        case '+':
+            result = operand1 + operand2;
+            break;
+        case '-':
+            result = operand1 - operand2;
+            break;
+        case '*':
+            result = operand1 * operand2;
+            break;
+        case '/':
+            if (operand2 === 0) {
+                result = 'Cannot divide by zero';
+            }
+            else {
+                result = operand1 / operand2;
+            }
+            break;
+        default:
+            result = 'Invalid operator';
+    }
+    res.send({
+        message: 'Create new calculation',
+        timestamp: req.timestamp,
+        result,
+    });
+});
