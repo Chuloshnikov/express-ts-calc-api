@@ -14,6 +14,7 @@ app.use(middlewares_1.logger);
 // routes
 app.use('/health', routes_1.healthRouter);
 app.use('/calculator', routes_1.calculatorRouter);
+app.use(middlewares_1.errorHandler);
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
