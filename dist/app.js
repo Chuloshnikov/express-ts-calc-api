@@ -9,6 +9,7 @@ const middlewares_1 = require("./middlewares");
 const app = (0, express_1.default)();
 const port = 8080;
 // middleware
+app.use(express_1.default.json());
 app.use(middlewares_1.addTimestamp);
 app.use(middlewares_1.logger);
 // routes

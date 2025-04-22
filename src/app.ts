@@ -6,6 +6,7 @@ const port = 8080;
 
 
 // middleware
+app.use(express.json());
 app.use(addTimestamp);
 app.use(logger);
 
