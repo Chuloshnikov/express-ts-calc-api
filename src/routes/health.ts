@@ -1,7 +1,8 @@
-import { Router } from "express";
+import { Request, Router } from "express";
 
 export const router = Router();
 
-router.get('/', (req, res) => {
-    res.send({ message: 'OK'});
+router.get('/', (req: Request, res) => {
+    throw new Error('Application error');
+    res.send({ message: 'OK', timestamp: req.timestamp });
 });
