@@ -1,10 +1,13 @@
-import { Router } from "express";
+import { Request, Router } from "express";
+import { logger } from "../middlewares";
 
 export const router = Router();
 
-router.get('/', (req, res) => {
+
+router.get('/', (req: Request, res) => {
     res.send({ 
         message: 'Get all calculations', 
+        timestamp: req.timestamp,
         data: [
             { id: 1, result: 1}, 
             {id: 2, result: 2}
@@ -13,9 +16,11 @@ router.get('/', (req, res) => {
 
 
 
-router.get("/:id", (req, res) => {
-    console.log(`Query parameter: ${JSON.stringify(req.query)}`);
-    console.log(`Headers: ${JSON.stringify(req.headers)}`);
-    console.log(`Method: ${req.method}`);
-    res.status(202).header({'X-Custom-Header': 'foo', 'X-Custom-Header-2': 'fuu'}).send(`Hello ${req.params.id}`);
+router.get("/:id", (req: Request, res) => {
+    res.send({
+        message: 'Get calculation by ID',
+        timestamp: req.timestamp,
+        id: req.params.id,
+        result: 1,
+    })
 });
