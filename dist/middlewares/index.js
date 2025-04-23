@@ -17,3 +17,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./log"), exports);
 __exportStar(require("./time"), exports);
 __exportStar(require("./error"), exports);
+__exportStar(require("./calculator"), exports);
